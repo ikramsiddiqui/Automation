@@ -29,7 +29,7 @@ public class Category_Testcase {
        CMSLogin.UserEmail("k122023@nu.edu.pk");
      //User Password
        CMSLogin.UserPassword("123456789");
-       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+       driver.manage().timeouts().implicitlyWait(31, TimeUnit.SECONDS);
      //Click Login button
        CMSLogin.ClickLogin();
        
