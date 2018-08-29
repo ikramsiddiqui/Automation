@@ -1,3 +1,4 @@
+/*
 package com.Listener;
 
 import java.util.concurrent.TimeUnit;
@@ -28,7 +29,7 @@ public class Category_Testcase {
      //USer Email
        CMSLogin.UserEmail("k122023@nu.edu.pk");
      //User Password
-       CMSLogin.UserPassword("123456789");
+       CMSLogin.UserPassword("12345678");
        driver.manage().timeouts().implicitlyWait(31, TimeUnit.SECONDS);
      //Click Login button
        CMSLogin.ClickLogin();
@@ -60,3 +61,4 @@ public class Category_Testcase {
        Add_Category.SubCategoryDescription("Sub category");
 	}
 	}
+*/

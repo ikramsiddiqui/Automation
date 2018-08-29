@@ -33,20 +33,22 @@ public class Merchant{
 	
 	//merchant tab xpath
 	
-	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-2']")
+	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-3']")
 	WebElement merchantName;
 	@FindBy(how = How.XPATH, using=".//*[@id='mat-select-5']/div/div[1])]")
 	WebElement selectCountry;
-	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-3']")
-	WebElement aliasName;
 	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-4']")
-	WebElement titleName;
+	WebElement aliasName;
 	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-5']")
-	WebElement descriptionName;
+	WebElement titleName;
 	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-6']")
-	WebElement heading1Name;
+	WebElement descriptionName;
 	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-7']")
+	WebElement heading1Name;
+	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-8']")
 	WebElement searchTerm1Name;
+	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-9']")
+	WebElement Merchant;
 	@FindBy(how = How.XPATH, using=".//*[@id='cdk-step-content-0-0']/form/div[8]/button/span")
 	WebElement clickNext;
 	//Xpath of  merchant tab on side menu
@@ -74,17 +76,17 @@ public class Merchant{
 	
 	@FindBy(how = How.XPATH, using=".//*[@id='mat-select-9']/div/div[2]/div")
 	WebElement affiliate;
-	@FindBy(how = How.ID, using="mat-input-8")
+	@FindBy(how = How.ID, using="mat-input-10")
 	WebElement affiliateId;
 	@FindBy(how = How.XPATH, using=".//*[@id='cdk-step-content-0-3']/form/div[3]/button[2]")
 	WebElement affiliateClickNext;
 	
 	//xpath of url
-	@FindBy(how = How.ID, using="mat-input-9")
-	WebElement redirectUrl;
 	@FindBy(how = How.ID, using="mat-input-11")
-	WebElement domainUrl;
+	WebElement redirectUrl;
 	@FindBy(how = How.ID, using="mat-input-12")
+	WebElement domainUrl;
+	@FindBy(how = How.ID, using="mat-input-13")
 	WebElement normalizedUrl;
 	@FindBy(how = How.XPATH, using=".//*[@id='cdk-step-content-0-4']/form/div[3]/button[2]")
 	WebElement urlClickNext;
@@ -135,6 +137,10 @@ public class Merchant{
 		
 		searchTerm1Name.sendKeys(searchterm);
 	}
+	public void Merchant(String merchant){
+		jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",merchant);
+		merchantName.sendKeys(merchant);
+	}
 	public void BasicClickNext(WebDriver driver){
 		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		   jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",clickNext);
@@ -150,6 +156,26 @@ public class Merchant{
 	       driver.findElement(By.xpath(".//*[contains(text(),'Pakistan')]")).click();
       
 	}
+	public void SelectBarcode(WebDriver driver){
+		WebElement selectBarcode = driver.findElement(By.xpath(".//*[@id='mat-select-6']/div/div[1]"));
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		selectBarcode.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.findElement(By.xpath(".//*[contains(text(),'barcode-001')]")).click();
+
+	}
+
+	public void SelectMerchantTier(WebDriver driver){
+
+		WebElement selectMerchantTier = driver.findElement(By.xpath(".//*[@id='mat-select-7']/div/div[1]"));
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",selectMerchantTier);
+		selectMerchantTier.click();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.findElement(By.xpath(".//*[contains(text(),'TIER1')]")).click();
+
+	}
+
 	public void logo(String Imagepath){
 		
 		logoimage.sendKeys(Imagepath);

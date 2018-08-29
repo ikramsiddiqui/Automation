@@ -1,3 +1,4 @@
+/*
 package com.Listener;
 
 
@@ -69,10 +70,11 @@ public class Merchant_Testcase {
    //Select country 
    driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
   Add_Merchant.SelectCountry(driver);
-/*      WebElement Country = driver.findElement(By.xpath(".//*[@id='mat-select-5']/div/div[1]"));
+      WebElement Country = driver.findElement(By.xpath(".//*[@id='mat-select-5']/div/div[1]"));
        Country.click();
        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-       driver.findElement(By.xpath(".//*[contains(text(),'Pakistan')]")).click();*/
+       driver.findElement(By.xpath(".//*[contains(text(),'Pakistan')]")).click();
+
     
   	 //Enter Alias 
     driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
@@ -116,14 +118,14 @@ public class Merchant_Testcase {
     
     
 	 //click  next
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+//    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
    // Add_Merchant.ImageNextButton();
        
-       driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
-       WebElement element1 = driver.findElement(By.xpath(".//*[@id='cdk-step-content-0-1']/form/div[5]/button[2]"));
-       js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",element1);
-       element1.click();
-	
+//       driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+//       WebElement element1 = driver.findElement(By.xpath(".//*[@id='cdk-step-content-0-1']/form/div[5]/button[2]"));
+//       js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",element1);
+//       element1.click();
+//
 
        
        
@@ -207,24 +209,28 @@ public class Merchant_Testcase {
 
   
   
-/*------------------------------------Management TAb--------------------------------------------*/
+------------------------------------Management TAb--------------------------------------------
+
   
-/*  Add_Merchant.FinsihButton();*/
+  Add_Merchant.FinsihButton();
+
   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
   WebElement FinishButton = driver.findElement(By.xpath(" .//*[@id='cdk-step-content-0-5']/form/div[4]/button[2]"));
   js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",FinishButton);
   FinishButton.click();
  
 	}
-/*   @Test(dependsOnMethods= "Merchant")
+   @Test(dependsOnMethods= "Merchant")
    public void Logout(){
 	   
 	   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 	   WebElement logoutButton= driver.findElement(By.xpath(" .//*[contains(text(),'Logout')]"));
 	   js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",logoutButton);
 	   logoutButton.click();
-   }*/
+   }
+
   
 	}
 	
 
+*/

@@ -27,7 +27,7 @@ public class TestingClass {
 	  
        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
      //USer Email
-       CMSLogin.UserEmail("k122023@nu.edu.pk");
+       CMSLogin.UserEmail("Coupon@user.com");
      //User Password
        CMSLogin.UserPassword("12345678");
        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -74,9 +74,20 @@ public class TestingClass {
 		   Add_Merchant.Heading1("Aselenium");
 		   
 		   //Enter search term
+
+
+		/*   Add_Merchant.SearchTerm("Aselenium");
+
 		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
-		   Add_Merchant.SearchTerm("Aselenium");
-		  
+		   Add_Merchant.Merchant("Aselenium");
+*/
+
+/*
+		  *//* driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);*//*
+		   Add_Merchant.SelectBarcode(driver);*/
+
+		/*   driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
+		   Add_Merchant.SelectMerchantTier(driver);*/
 
 		   //Click Nextbuttton
 		   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -107,8 +118,8 @@ public class TestingClass {
 		       driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
 		      // Add_Merchant.Category(driver);
 		       
-		 WebElement categorydropDown = driver.findElement(By.xpath(".//*[@id='mat-select-9']/div"));
-		     driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
+		 WebElement categorydropDown = driver.findElement(By.xpath(".//*[@id='mat-select-8']/div"));
+		     driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		  
 		        js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",categorydropDown);
 		     categorydropDown.click();
@@ -119,7 +130,7 @@ public class TestingClass {
 		  
 		    	    for ( WebElement we: options) { 
 		        
-		    	        if ( we.getText().contains( "Leather" ) )
+		    	        if ( we.getText().contains( "Shoes" ) )
 		    	        	{
 		    	  we.click();
 		        	break;
@@ -143,34 +154,40 @@ public class TestingClass {
 		    ///------------------------------------Affiliate Network TAb--------------------------------------------/////
 		       
 		       
-		       //Click  Affiliate network drop down 
-		      driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
-		      // Add_Merchant.Category(driver);
-		       
-		 WebElement AffiliateNetworkdropDown = driver.findElement(By.xpath(".//*[@id='mat-select-10']/div"));
-	   
-		 driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
-		  
-		        js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",AffiliateNetworkdropDown);
-		        AffiliateNetworkdropDown.click();
-		    
-		     WebElement AffiliateNetworkoptionsContainer = driver.findElement(By.id("cdk-overlay-2"));
-		     driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS); 
-		     List<WebElement> allOptions = AffiliateNetworkoptionsContainer.findElements(By.className("mat-option-text"));
-		  
-		    	    for ( WebElement w: allOptions) { 
-		        
-		    	        if ( w.getText().contains("Ratuken"))
+		       //Click  Affiliate network drop down
+		   driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+		   WebElement AffiliateNetworkdropDown = driver.findElement(By.xpath(".//*[@id='mat-select-9']/div"));
+		   driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+		   js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",AffiliateNetworkdropDown);
+		   AffiliateNetworkdropDown.click();
+		   WebElement AffiliateNetworkoptionsContainer = driver.findElement(By.id("cdk-overlay-2"));
+		   driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		   List<WebElement> allOptions = AffiliateNetworkoptionsContainer.findElements(By.className("mat-option-text"));
+		    	    for ( WebElement w: allOptions) {
+		    	        if ( w.getText().contains("In House"))
 		    	        	{
 		    	  w.click();
-		    	  System.out.println("sdasd");
 		        	break;
-		        	
 		        	}
-		    	    	 
-		    	        }
-		    	 
-		    
+		    	    }
+
+		   //Click  Affiliate network status drop down
+		   driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+		   WebElement AffiliateNetworkStatusdropDown = driver.findElement(By.xpath(".//*[@id='mat-select-10']/div"));
+		   driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+		   js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",AffiliateNetworkStatusdropDown);
+		   AffiliateNetworkStatusdropDown.click();
+		   WebElement AffiliateNetworkStatusOptionsContainer = driver.findElement(By.id("cdk-overlay-3"));
+		   driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		   List<WebElement> StatusOptions = AffiliateNetworkStatusOptionsContainer.findElements(By.className("mat-option-text"));
+		   for ( WebElement s: StatusOptions) {
+			   if ( s.getText().contains("Deactivated"))
+			   {
+				   s.click();
+				   break;
+			   }
+		   }
+
 		       //Enter Affiliate network ID
 		       Add_Merchant.Affiliate_ID("12");
 		       
@@ -195,9 +212,9 @@ public class TestingClass {
 		    js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",FinishButton);
 		    FinishButton.click();	      
 }
- 
-       @Test
-       public void UpdateMerchant() throws InterruptedException{
+
+       @Test(enabled=false)
+	   public void UpdateMerchant() throws InterruptedException{
     	   Merchant Add_Merchant =PageFactory.initElements(driver, Merchant.class);
 		     System.out.println("4");
   //click Merchant
