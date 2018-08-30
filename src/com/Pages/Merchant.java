@@ -25,7 +25,7 @@ public class Merchant{
 	
 	
 	WebDriver driver;
-	 JavascriptExecutor jsx = (JavascriptExecutor)driver;
+
 	public void LoginPageNew(WebDriver Idriver){
 		
 		this.driver =Idriver;
@@ -47,8 +47,6 @@ public class Merchant{
 	WebElement heading1Name;
 	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-8']")
 	WebElement searchTerm1Name;
-	@FindBy(how = How.XPATH, using=".//*[@id='mat-input-9']")
-	WebElement Merchant;
 	@FindBy(how = How.XPATH, using=".//*[@id='cdk-step-content-0-0']/form/div[8]/button/span")
 	WebElement clickNext;
 	//Xpath of  merchant tab on side menu
@@ -137,12 +135,18 @@ public class Merchant{
 		
 		searchTerm1Name.sendKeys(searchterm);
 	}
-	public void Merchant(String merchant){
-		jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",merchant);
+	public void MerchantField(WebDriver driver , String merchant){
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		JavascriptExecutor jsx = (JavascriptExecutor)driver;
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		WebElement merchantName = driver.findElement(By.xpath(".//*[@id='mat-input-9']"));
+		jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",merchantName);
 		merchantName.sendKeys(merchant);
 	}
 	public void BasicClickNext(WebDriver driver){
-		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		JavascriptExecutor jsx = (JavascriptExecutor)driver;
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		   jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",clickNext);
 		   clickNext.click();
 
@@ -157,18 +161,24 @@ public class Merchant{
       
 	}
 	public void SelectBarcode(WebDriver driver){
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		JavascriptExecutor jsx = (JavascriptExecutor)driver;
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		WebElement selectBarcode = driver.findElement(By.xpath(".//*[@id='mat-select-6']/div/div[1]"));
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",selectBarcode);
 		selectBarcode.click();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.findElement(By.xpath(".//*[contains(text(),'barcode-001')]")).click();
 
 	}
 
 	public void SelectMerchantTier(WebDriver driver){
-
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		JavascriptExecutor jsx = (JavascriptExecutor)driver;
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		WebElement selectMerchantTier = driver.findElement(By.xpath(".//*[@id='mat-select-7']/div/div[1]"));
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",selectMerchantTier);
 		jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",selectMerchantTier);
 		selectMerchantTier.click();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
@@ -182,35 +192,35 @@ public class Merchant{
 	}	
 	
 	public void ImageNextButton(){
-		driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);     
+
+		/*driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
 	   jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",imageNextButton);
-	   imageNextButton.click();
+	   imageNextButton.click();*/
 	      			
 	}
-	
-	
+
+	//click category dropdown
 	public void Category(WebDriver driver){
-		
-		 WebElement categorydropDown = driver.findElement(By.xpath(".//*[@id='mat-select-8']/div"));
-	     driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
-	  
-	        jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",categorydropDown);
-	     categorydropDown.click();
-	     
-	     WebElement optionsContainer = driver.findElement(By.id("cdk-overlay-1"));
-	     
-	     List<WebElement> options = optionsContainer.findElements(By.className("mat-option-text"));
-	  
-	    	    for ( WebElement we: options) { 
-	        
-	    	        if ( we.getText().contains( "Leather" ) )
-	    	        	{
-	    	  we.click();
-	    	        	}
-	    	    	   //System.out.println("Usama");
-	    	        }
-	    	
-		
+
+		JavascriptExecutor jsx = (JavascriptExecutor)driver;
+		driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+		// Add_Merchant.Category(driver)
+		WebElement categorydropDown = driver.findElement(By.xpath(".//*[@id='mat-select-8']/div"));
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
+		jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",categorydropDown);
+		categorydropDown.click();
+		System.out.println("3");
+		WebElement optionsContainer = driver.findElement(By.id("cdk-overlay-1"));
+		List<WebElement> options = optionsContainer.findElements(By.className("mat-option-text"));
+		System.out.println(options);
+		driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+		for ( WebElement we: options) {
+			if ( we.getText().contains( "Leather" ) )
+			{
+				we.click();
+				break; }
+		}
+
 	     /*driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
 	     jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",category);
 	     category.click();
@@ -222,15 +232,19 @@ public class Merchant{
 	}
 	
      public void CategoryNextButton(){
-	   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
+		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		 JavascriptExecutor jsx = (JavascriptExecutor)driver;
+		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
        WebElement element2 = driver.findElement(By.xpath(".//*[@id='cdk-step-content-0-2']/form/div[3]/button[2]"));
        jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",element2);
        element2.click();
 }
 	
    public void SelectAffiliateNetwork(){
-	   
-	      driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS); 
+
+	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	   JavascriptExecutor jsx = (JavascriptExecutor)driver;
+	   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	       jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",affiliate);
 	       affiliate.click();
 	       //Select affiliate Network
@@ -277,7 +291,9 @@ public class Merchant{
 	}
 
 public void FinsihButton(){
-	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	JavascriptExecutor jsx = (JavascriptExecutor)driver;
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",clickFinish);
 	  clickFinish.click();
 }
