@@ -77,33 +77,6 @@ public class TestingClass {
 		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		   Add_Merchant.SearchTerm("Aselenium");
 
-		  /* driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		   JavascriptExecutor jsx = (JavascriptExecutor)driver;
-		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		   WebElement selectBarcode = driver.findElement(By.xpath(".//*[@id='mat-select-6']/div/div[1]"));
-		   jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",selectBarcode);
-		   selectBarcode.click();
-		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		   driver.findElement(By.xpath(".//*[contains(text(),'barcode-001')]")).click();
-*/
-	/*	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		   JavascriptExecutor js = (JavascriptExecutor)driver;
-		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		   WebElement merchantName = driver.findElement(By.xpath(".//*[@id='mat-input-9']"));
-		   jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",merchantName);
-		   merchantName.sendKeys("asdasfasf");
-
-		   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		   JavascriptExecutor js = (JavascriptExecutor)driver;
-		   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		   WebElement selectMerchantTier = driver.findElement(By.xpath(".//*[@id='mat-select-7']/div/div[1]"));
-		   driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		   jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",selectMerchantTier);
-		   jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",selectMerchantTier);
-		   selectMerchantTier.click();*/
-		   /*driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		   driver.findElement(By.xpath(".//*[contains(text(),'TIER1')]")).click();
-*/
 
 
 		   driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
@@ -165,13 +138,13 @@ public class TestingClass {
 				   break; }
 		   }
 
-
-		    /*   driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+          driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		    WebElement element2 =  driver.findElement(By.xpath(".//*[@id='cdk-step-content-0-2']/form/div[3]/button[2]"));
 		      js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",element2);
 		      element2.click();
-		       
-		      
+
+
+
 		    ///------------------------------------Affiliate Network TAb--------------------------------------------/////
 		       
 		       
@@ -181,11 +154,11 @@ public class TestingClass {
 		   driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
 		   js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",AffiliateNetworkdropDown);
 		   AffiliateNetworkdropDown.click();
-		   WebElement AffiliateNetworkoptionsContainer = driver.findElement(By.id("cdk-overlay-2"));
+		   WebElement AffiliateNetworkoptionsContainer = driver.findElement(By.id("cdk-overlay-5"));
 		   driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		   List<WebElement> allOptions = AffiliateNetworkoptionsContainer.findElements(By.className("mat-option-text"));
 		    	    for ( WebElement w: allOptions) {
-		    	        if ( w.getText().contains("In House"))
+		    	        if ( w.getText().contains("LinkShare"))
 		    	        	{
 		    	  w.click();
 		        	break;
@@ -198,7 +171,7 @@ public class TestingClass {
 		   driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
 		   js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",AffiliateNetworkStatusdropDown);
 		   AffiliateNetworkStatusdropDown.click();
-		   WebElement AffiliateNetworkStatusOptionsContainer = driver.findElement(By.id("cdk-overlay-3"));
+		   WebElement AffiliateNetworkStatusOptionsContainer = driver.findElement(By.id("cdk-overlay-6"));
 		   driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		   List<WebElement> StatusOptions = AffiliateNetworkStatusOptionsContainer.findElements(By.className("mat-option-text"));
 		   for ( WebElement s: StatusOptions) {
@@ -216,38 +189,40 @@ public class TestingClass {
 		       Add_Merchant.AffiliateNextClick();
 		       ///------------------------------------URl TAb--------------------------------------------/////
 		       
-		       //Enter  Redirect Url 
+		       //Enter  Redirect Url
 		  Add_Merchant.Redirect_Url("https://www.google.com/");
 		  
 		  //Enter  Domain Url 
 		  Add_Merchant.Domain_Url("https://www.google.com/");
-		  Add_Merchant.Normalized_Url("https://www.google.com/");
+
 		  
 		//Enter normalized Url
 		  Add_Merchant.UrlNextClick();
-		  *//*------------------------------------Management TAb--------------------------------------------*//*
+		  //*------------------------------------Management TAb--------------------------------------------*//*
 
-		   // Add_Merchant.Category(driver)
+	/*	   // Add_Merchant.Category(driver) */
 		   WebElement ManagerdropDown = driver.findElement(By.xpath(".//*[@id='mat-select-11']/div"));
 		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		   js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",ManagerdropDown);
 		   ManagerdropDown.click();
 		   System.out.println("3");
-		   WebElement ManagerContainer = driver.findElement(By.id("cdk-overlay-4"));
+		   WebElement ManagerContainer = driver.findElement(By.id("cdk-overlay-7"));
 		   List<WebElement> Manageroptions = ManagerContainer.findElements(By.className("mat-option-text"));
 		   for ( WebElement M: Manageroptions) {
-			   if ( M.getText().contains( " Shariq Masood (shariq)" ) )
+			   if ( M.getText().contains("Quotient user (QuotientMerchant)"))
 			   {
 				   M.click();
 				   break; }
 		   }
 
 
-		  *//*  Add_Merchant.FinsihButton();*//*
+		  //  Add_Merchant.FinsihButton();
 		    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); 
 		    WebElement FinishButton = driver.findElement(By.xpath(" .//*[@id='cdk-step-content-0-5']/form/div[4]/button[2]"));
 		    js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",FinishButton);
-		    FinishButton.click();	*/
+		    FinishButton.click();
+		  driver.quit();
+
 }
 
        @Test(enabled=false)

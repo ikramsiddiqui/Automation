@@ -82,10 +82,10 @@ public class Merchant{
 	//xpath of url
 	@FindBy(how = How.ID, using="mat-input-11")
 	WebElement redirectUrl;
-	@FindBy(how = How.ID, using="mat-input-12")
-	WebElement domainUrl;
 	@FindBy(how = How.ID, using="mat-input-13")
-	WebElement normalizedUrl;
+	WebElement domainUrl;
+	/*@FindBy(how = How.ID, using="mat-input-13")
+	WebElement normalizedUrl;*/
 	@FindBy(how = How.XPATH, using=".//*[@id='cdk-step-content-0-4']/form/div[3]/button[2]")
 	WebElement urlClickNext;
 	@FindBy(how = How.XPATH, using=".//*[@id='cdk-step-content-0-5']/form/div[4]/button[2]")
@@ -209,7 +209,6 @@ public class Merchant{
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",categorydropDown);
 		categorydropDown.click();
-		System.out.println("3");
 		WebElement optionsContainer = driver.findElement(By.id("cdk-overlay-1"));
 		List<WebElement> options = optionsContainer.findElements(By.className("mat-option-text"));
 		System.out.println(options);
@@ -279,11 +278,11 @@ public class Merchant{
 		
 	      domainUrl.sendKeys(DomainURl);
 	}
-	public void Normalized_Url(String NormalizedUrl){
+/*	public void Normalized_Url(String NormalizedUrl){
 
 		
 	      normalizedUrl.sendKeys(NormalizedUrl);
-	}
+	}*/
 	public void UrlNextClick(){
 
 		
