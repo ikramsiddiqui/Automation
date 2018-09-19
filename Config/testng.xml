@@ -8,6 +8,7 @@
   </listeners>
   <test name="Regression Test Suite"   >
       <classes>
-      <class name ="Listener.Merchant_Testcase"/></classes>  
+      <class name ="Listener.MerchantTestCase"/>
+      <class name ="Listener.UserTestCase"/></classes>
  </test>
 </suite>

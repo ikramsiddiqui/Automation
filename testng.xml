@@ -3,7 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="test.TestingClass"/>
+      <class name="test.java.MerchantTestCase"/>
+      <class name="test.java.CouponTestClass"/>
+      <class name="test.java.UserTestCase"/>
       
     </classes>
   </test> <!-- Test -->

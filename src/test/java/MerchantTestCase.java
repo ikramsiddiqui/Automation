@@ -14,7 +14,7 @@ import com.Pages.CMS_Login;
 import com.Pages.Merchant;
 import com.helper.browserfactory;
 
-public class TestingClass {
+public class MerchantTestCase {
 
 	WebDriver driver =browserfactory.startBrowser("chrome", "http://pubapp.westus.cloudapp.azure.com/codesadmin/apps/dashboards/project/");
 
@@ -42,52 +42,38 @@ public class TestingClass {
 		  //click Merchant
 	      driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	      Add_Merchant.Click_Merchant();
-	      
 	      //click List Merchant
 	      driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		  Add_Merchant.Click_ListMerchant();
-		  
-		//click Add Merchant
+		  //click Add Merchant
 		  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);   
-	  Add_Merchant.Click_AddButton();
-			  
-			 //Enter merchant name
-		    driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
+	      Add_Merchant.Click_AddButton();
+	      //Enter merchant name
+		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		   Add_Merchant.MerchantName("AutoTester5");
-	System.out.println("1");
 		 //Select country 
 		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
-		  Add_Merchant.SelectCountry(driver);
-		  driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
+		   Add_Merchant.SelectCountry(driver);
+		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		   Add_Merchant.Alias("selenium");
-		   
 			 //Enter title 
 		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		   Add_Merchant.Title("selenium");
-		   
 			 //Enter Description
 		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		   Add_Merchant.Description("selenium");
-		   
 		   //Enter Heading1
 		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		   Add_Merchant.Heading1("Aselenium");
-		   
 		   //Enter search term
 		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		   Add_Merchant.SearchTerm("Aselenium");
-
-
-
 		   driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		   Add_Merchant.SelectBarcode(driver);
 		   //Selecte Merchant
-
-
 		   driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		   Add_Merchant.MerchantField(driver , "merchant");
 		   driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
-
 		   driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		   Add_Merchant.SelectMerchantTier(driver);
 		   //Click Nextbuttton
@@ -126,7 +112,6 @@ public class TestingClass {
 		   driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		   js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",categorydropDown);
 		   categorydropDown.click();
-		   System.out.println("3");
 		   WebElement optionsContainer = driver.findElement(By.id("cdk-overlay-4"));
 		   List<WebElement> options = optionsContainer.findElements(By.className("mat-option-text"));
 		   System.out.println(options);
