@@ -12,12 +12,16 @@ public class CMS_Login {
 			
 			this.driver =Idriver;
 		}
-		@FindBy(how = How.ID, using="mat-input-0")
+		@FindBy(how = How.ID, using="login-email")
 		WebElement userEmailID;
-		@FindBy(how = How.ID, using="mat-input-1")
+		@FindBy(how = How.ID, using="login-password")
 		WebElement userPassword;
-		@FindBy(how = How.XPATH, using=".//*[@id='login-form']/form/button")
+		@FindBy(how = How.ID, using="login-sendCode")
 		WebElement loginButton;
+	@FindBy(how = How.ID, using="login-securityCode")
+	WebElement enterCode;
+	@FindBy(how = How.ID, using="login-loginButton")
+	WebElement clickButton;
 		
 		//Enter Email address
 		public void UserEmail(String email){
@@ -31,7 +35,14 @@ public class CMS_Login {
 		//click login
 		public void ClickLogin(){
 		    loginButton.click();
+
 		}
-		
+
+		public void EnterSecurityCode(){
+			enterCode.sendKeys("234786");
+		}
+		public void  ClickSubmit(){
+			clickButton.click();
+		}
 		
 }

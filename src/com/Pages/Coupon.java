@@ -1,9 +1,7 @@
 package com.Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -21,70 +19,71 @@ public class Coupon {
 
     @FindBy(how = How.XPATH, using=".//*[@id='main-navigation']/fuse-nav-vertical-group[1]/div[2]/fuse-nav-vertical-collapse[3]/a/span")
     WebElement clickCoupon;
-
-    @FindBy(how = How.XPATH, using=".//*[@id='main-navigation']/fuse-nav-vertical-group[1]/div[2]/fuse-nav-vertical-collapse[3]/div/fuse-nav-vertical-item[1]/a")
+    @FindBy(how = How.ID, using="automationId-list-coupons")
     WebElement clickListCoupon;
-    @FindBy(how = How.XPATH, using=".//*[@id='add-file-button']/button/span/mat-icon")
+    @FindBy(how = How.ID, using="automationId-add-coupon")
     WebElement clickAddCoupon;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-6']")
+    @FindBy(how = How.ID, using= "automationId-coupon-title")
     WebElement couponTitle;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-7']")
+    @FindBy(how = How.ID, using="automationId-coupon-merchantName")
     WebElement typeMerchant;
-    @FindBy(how = How.XPATH, using=".//*[@id='ngxEditor']/div/div")
+    @FindBy(how = How.ID, using="automationId-coupon-description")
     WebElement  couponDescription;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-9']")
+    @FindBy(how = How.ID, using="automationId-coupon-startTime")
     WebElement  couponStartTime;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-11']")
+    @FindBy(how = How.ID, using="automationId-coupon-endTime")
     WebElement  couponEndTime;
     @FindBy(how = How.XPATH, using=".//*[@id='file-manager']/mat-sidenav-container/mat-sidenav-content/div/div[2]/fuse-file-list/div/form/div[4]/div/mat-form-field/div/div[1]/div[2]/mat-datepicker-toggle/button")
     WebElement clickEndDate;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-12']")
+    @FindBy(how = How.ID, using="automationId-coupon-tags")
     WebElement couponTag;
-    @FindBy(how = How.XPATH, using=" .//*[@id='mat-input-13']")
+    @FindBy(how = How.ID, using="automationId-coupon-restrictions")
     WebElement couponRestrict;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-14']")
+    @FindBy(how = How.ID, using="automationId-coupon-customBtnText")
     WebElement customButton;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-slide-toggle-9']/label/div/div/div[1]")
+    @FindBy(how = How.ID, using="automationId-coupon-cashback")
     WebElement clickCashBack;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-20']")
+    @FindBy(how = How.ID, using="automationId-coupon-cashbackPercentage")
     WebElement cbPercent;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-select-11']/div/div[1]")
+    @FindBy(how = How.ID, using="automationId-coupon-couponType")
     WebElement couponType;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-21']")
+    @FindBy(how = How.ID, using="automationId-coupon-code")
     WebElement couponCode;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-checkbox-10']/label/div")
+    @FindBy(how = How.CSS, using="mat-checkbox[id^='automationId-coupon-category-']")
     WebElement couponCategory;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-checkbox-97']/label/div")
+    @FindBy(how = How.CSS, using="mat-checkbox[id^='automationId-coupon-seasonalEvent-']")
     WebElement couponSeasonalEvent;
-    @FindBy(how = How.XPATH, using=".//*[@id='file-manager']/mat-sidenav-container/mat-sidenav-content/div/div[2]/fuse-file-list/div/form/div[21]/button/span")
+    @FindBy(how = How.ID, using="automationId-coupon-submitBtn")
     WebElement addCouponButton;
 
 
     /*---------------------------------------Update Coupon Xpath----------------------------*/
 
-    @FindBy(how = How.XPATH, using=".//*[@id='file-manager']/mat-sidenav-container/mat-sidenav-content/div/div[2]/fuse-file-list/div/mat-table/mat-row[6]\n")
+    @FindBy(how = How.XPATH, using=".//*[contains(text(),'more_vert')]")
     WebElement clickUpdateCoupon;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-25']")
+    @FindBy(how = How.ID, using = "cdk-describedby-message-148")
+    WebElement clickUpdate;
+    @FindBy(how = How.ID, using="mat-input-25")
     WebElement updateCouponTitle;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-26']")
+    @FindBy(how = How.ID, using="mat-input-26")
     WebElement updateMerchantName;
     @FindBy(how = How.XPATH, using=".//*[@id='ngxEditor']/div/div")
     WebElement updateCouponDescription;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-31']")
+    @FindBy(how = How.ID, using="mat-input-31")
     WebElement updateCouponTag;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-32']")
+    @FindBy(how = How.ID, using="mat-input-32")
     WebElement updateCouponRestriction;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-select-17']/div/div[1]")
+    @FindBy(how = How.XPATH, using=".//*[@id='mat-select-12'] |.//*[@id='mat-select-17']")
     WebElement updateCouponPriority;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-35']")
+    @FindBy(how = How.ID, using="mat-input-35")
     WebElement updateCustomButton;
     @FindBy(how = How.XPATH, using=".//*[contains(text(),'Cashback Coupon')]")
     WebElement updateClickCashBack;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-select-18']")
+    @FindBy(how = How.XPATH, using=".//*[@id='mat-select-13'] | .//*[@id='mat-select-18']")
     WebElement updateCouponType;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-28']")
+    @FindBy(how = How.ID, using= "mat-input-28")
     WebElement updateStartTime;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-30']")
+    @FindBy(how = How.ID, using="mat-input-30")
     WebElement updateEndTime;
     @FindBy(how = How.XPATH, using=".//*[contains(text(),'Update Coupon')]")
     WebElement clickUpdateButton;
@@ -110,23 +109,33 @@ public class Coupon {
     public void CouponTitle(String title){
         couponTitle.sendKeys(title);
     }
-    public void  TypeMerchant(WebDriver driver){
-
-        typeMerchant.sendKeys("m");
+    public void  TypeMerchant(WebDriver driver) {
+        try {
+        typeMerchant.sendKeys("ma");
         WebElement optionsContainer = driver.findElement(By.id("cdk-overlay-0"));
         List<WebElement> options = optionsContainer.findElements(By.className("mat-option-text"));
         System.out.println(options);
-        driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
-        for ( WebElement we: options) {
-            if ( we.getText().contains( "Mattress" ) )
-            {
-                we.click();
-                break; }
-        }
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 
+            for (WebElement we : options) {
+                if (we.getText().contains("MAC Cosmetics")) {
+                    we.click();
+                    break;
+                }
+
+
+            }
+        } catch (StaleElementReferenceException e) {
+       System.out.println("Exception handle");
+        }
     }
-    public void Description(String description){
-        couponDescription.sendKeys(description);
+
+    public void Description(WebDriver driver, String description){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(couponDescription);
+        actions.click();
+        actions.sendKeys(description);
+        actions.build().perform();
 
     }
     public void CouponStartTime(WebDriver driver ,String couponstarttime){
@@ -142,7 +151,7 @@ public class Coupon {
         System.out.println(options);
         driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
         for ( WebElement e: options) {
-            if ( e.getText().contains( "22" ) )
+            if ( e.getText().contains( "30" ) )
             {
                 e.click();
                 break; }
@@ -172,7 +181,7 @@ public class Coupon {
         customButton.sendKeys(custombutton);
     }
     public void SelectPriority(WebDriver driver){
-        WebElement selectPriority = driver.findElement(By.xpath(".//*[@id='mat-select-10']/div/div[1]"));
+        WebElement selectPriority = driver.findElement(By.id("automationId-coupon-priority"));
         JavascriptExecutor jsx = (JavascriptExecutor)driver;
         jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",selectPriority);
         selectPriority.click();
@@ -192,21 +201,16 @@ public class Coupon {
         JavascriptExecutor jc = (JavascriptExecutor)driver;
         jc.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",couponType);
         couponType.click();
-     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//*[@id='mat-option-32']/span")).click();
-
-       /* couponType.click();
         WebElement optionsContainer = driver.findElement(By.id("cdk-overlay-3"));
-        List<WebElement> typeoptions = optionsContainer.findElements(By.className("mat-option-text"));
-        System.out.println(typeoptions);
+        List<WebElement> options = optionsContainer.findElements(By.className("mat-option-text"));
+        System.out.println(options);
         driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
-        for ( WebElement ct: typeoptions) {
-            if ( ct.getText().contains( "Code" ) )
+     for ( WebElement w: options) {
+            if ( w.getText().contains( "Code" ) )
             {
-                ct.click();
-                break;
-                }
-        }*/
+                w.click();
+                break; }
+        }
 
     }
 
@@ -238,26 +242,35 @@ public class Coupon {
 
     /*---------------------------------------Update Coupon field method----------------------------*/
 
-public void ClickUpdateCoupon(){
+public void ClickUpdateCoupon(WebDriver driver){
         clickUpdateCoupon.click();
     }
-public void UpdateCouponName(String updatecoupontitle){
+    public void ClickUpdate(WebDriver driver){
+    clickUpdate.click();
+
+    }
+public void UpdateCouponName(WebDriver driver ,String updatecoupontitle){
         updateCouponTitle.clear();
         updateCouponTitle.sendKeys(updatecoupontitle);
 }
 public void UpdateMerchantCoupon(WebDriver driver){
         updateMerchantName.clear();
-    updateMerchantName.sendKeys("n");
-    WebElement merchantOptionsContainer = driver.findElement(By.id("cdk-overlay-5"));
-    List<WebElement> mcoptions = merchantOptionsContainer.findElements(By.className("mat-option-text"));
-    System.out.println(mcoptions);
+    updateMerchantName.sendKeys("N");
+    WebElement optionsContainer = driver.findElement(By.id("cdk-overlay-6"));
+    List<WebElement> options = optionsContainer.findElements(By.className("mat-option-text"));
+    System.out.println(options);
     driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
-    for ( WebElement mc: mcoptions) {
-        if ( mc.getText().contains( "Newegg" ) )
+   try{ for ( WebElement w: options) {
+        if ( w.getText().contains( "N fini" ) )
         {
-            mc.click();
+            w.click();
             break; }
-    }
+    }}
+   catch (Exception e) {
+
+       System.out.println("Exception occurred");
+   }
+
 }
 public void UpdateCouponDescription(String updatecoupondescription){
         updateCouponDescription.clear();
@@ -298,8 +311,16 @@ public void UpdateCouponType(WebDriver driver){
     JavascriptExecutor jc = (JavascriptExecutor)driver;
     jc.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",updateCouponType);
     updateCouponType.click();
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    driver.findElement(By.xpath( ".//*[@id='mat-option-63']/span")).click();
+    WebElement optionsContainer = driver.findElement(By.id("cdk-overlay-8"));
+    List<WebElement> options = optionsContainer.findElements(By.className("mat-option-text"));
+    System.out.println("type" +options);
+    driver.manage().timeouts().implicitlyWait(70, TimeUnit.SECONDS);
+     for ( WebElement w: options) {
+        if ( w.getText().contains( "Sale" ) )
+        {
+            w.click();
+            break; }
+    }
 }
 public void UpdateStartTime(String updatestarttime){
 

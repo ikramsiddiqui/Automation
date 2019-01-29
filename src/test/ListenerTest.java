@@ -1,4 +1,4 @@
-package test.java;
+package test;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;

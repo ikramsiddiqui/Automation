@@ -1,7 +1,8 @@
-package test.java;
+package test;
 
 import com.Pages.CMS_Login;
 import com.Pages.Coupon;
+
 import com.Pages.Merchant;
 import com.helper.browserfactory;
 import org.openqa.selenium.By;
@@ -15,11 +16,11 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CouponTestClass {
-    WebDriver driver = browserfactory.startBrowser("chrome", "http://pubapp.westus.cloudapp.azure.com/codesadmin/apps/dashboards/project/");
+    WebDriver driver = browserfactory.startBrowser("chrome", "http://localhost:4200/apps/dashboards/project/");
 
     //@Test
     @Test (priority = 0)
-    public void CMSlogin(){
+    public void CMSlogin() throws InterruptedException {
 
         //create Login page and Add Merchant object
         CMS_Login CMSLogin = PageFactory.initElements(driver,CMS_Login.class);
@@ -32,6 +33,10 @@ public class CouponTestClass {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         //Click Login button
         CMSLogin.ClickLogin();
+        Thread.sleep(5000);
+        CMSLogin.EnterSecurityCode();
+        Thread.sleep(5000);
+        CMSLogin.ClickSubmit();
 
     }
 
@@ -44,12 +49,12 @@ public class CouponTestClass {
         Add_Coupon.ClickListCoupon(driver);
         driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
         Add_Coupon.ClickAddCoupon();
-        driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         Add_Coupon.CouponTitle("30% off in macys");
-        driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
         Add_Coupon.TypeMerchant(driver);
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        Add_Coupon.Description("Auotmation tester");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Add_Coupon.Description(driver,"Auotmation tester");
         driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
         Add_Coupon.CouponStartTime(driver,"12:22AM");
         driver.manage().timeouts().implicitlyWait(60,TimeUnit.SECONDS);
@@ -77,22 +82,26 @@ public class CouponTestClass {
         driver.manage().timeouts().implicitlyWait(70,TimeUnit.SECONDS);
         Add_Coupon.SeasonalEvent(driver);
         driver.manage().timeouts().implicitlyWait(70,TimeUnit.SECONDS);
-       Add_Coupon.AddCouponButton(driver);
+      //Add_Coupon.AddCouponButton(driver);
 
 
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2 , enabled = false )
      public void UpdateCoupon() throws InterruptedException{
     Coupon Add_Coupon =PageFactory.initElements(driver, Coupon.class);
     driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
     Add_Coupon.ClickCoupon();
     driver.manage().timeouts().implicitlyWait(2,TimeUnit.MINUTES);
     Add_Coupon.ClickListCoupon(driver);
+   // driver.manage().timeouts().implicitlyWait(2,TimeUnit.MINUTES);
+    Thread.sleep(10000);
+    Add_Coupon.ClickUpdateCoupon(driver);
+    driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+    Add_Coupon.ClickUpdate(driver);
+
     driver.manage().timeouts().implicitlyWait(2,TimeUnit.MINUTES);
-    Add_Coupon.ClickUpdateCoupon();
-    driver.manage().timeouts().implicitlyWait(2,TimeUnit.MINUTES);
-    Add_Coupon.UpdateCouponName("20% off in Newegg");
+    Add_Coupon.UpdateCouponName(driver,"20% off in Newegg");
     driver.manage().timeouts().implicitlyWait(2,TimeUnit.MINUTES);
     Add_Coupon.UpdateMerchantCoupon(driver);
     driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);

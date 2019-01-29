@@ -1,4 +1,4 @@
-package test.java;
+package test;
 
 import com.Pages.CMS_Login;
 
@@ -15,11 +15,11 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class UserTestCase {
-    WebDriver driver = browserfactory.startBrowser("chrome", "https://codes.pdn.coupons.com/codesadmin/");
+    WebDriver driver = browserfactory.startBrowser("chrome", "http://localhost:4200/apps/dashboards/project/");
 
     //@Test
     @Test (priority = 0)
-    public void CMSlogin(){
+    public void CMSlogin() throws InterruptedException {
 
         //create Login page and Add Merchant object
         CMS_Login CMSLogin = PageFactory.initElements(driver,CMS_Login.class);
@@ -32,10 +32,14 @@ public class UserTestCase {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         //Click Login button
         CMSLogin.ClickLogin();
+        Thread.sleep(5000);
+        CMSLogin.EnterSecurityCode();
+        Thread.sleep(5000);
+        CMSLogin.ClickSubmit();
 
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, enabled = false)
     public void User() throws InterruptedException{
         User Add_User =PageFactory.initElements(driver, User.class);
         //click List User
@@ -83,12 +87,12 @@ public class UserTestCase {
 
 
        driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-         Add_User.AddUserButton(driver);
+     //    Add_User.AddUserButton(driver);
 
     }
 
 
-    @Test (priority = 2)
+    @Test (priority = 2 , enabled = true)
     public  void UpdateUser(){
         User Add_User =PageFactory.initElements(driver, User.class);
         //click Merchant
@@ -100,23 +104,20 @@ public class UserTestCase {
         Add_User.ClickUpdateButton();
         Add_User.ClickUpdateButton();
         driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
-        Add_User.UpdateFirstName("sdasdasd");
+        Add_User.FirstName("sdasdasd");
         driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
-        Add_User.UpdateLastNAme("asdasd");
+        Add_User.LastName("asdasd");
         driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
-        Add_User.UpdateEmail("QA1@gmail.com");
+        Add_User.EmailAddress("QA1@gmail.com");
+
         driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
-        Add_User.ClickUserStatus();
+        Add_User.PhoneNumber("0333333621");
         driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
-        Add_User.UpdatePhoneNO("0333333621");
-        driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
-        Add_User.UpdateUserType("asdas");
+        Add_User.UserType("asdas");
         driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
         Add_User.RemoveUserRole();
-        driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
-        Add_User.UpdateUserRole(driver);
         driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
-        Add_User.UpdateUserButton(driver);
+        //Add_User.UpdateUserButton(driver);
         driver.close();
 
 

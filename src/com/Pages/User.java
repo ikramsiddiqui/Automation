@@ -21,36 +21,34 @@ public class User {
     }
 
 
-    @FindBy(how = How.XPATH, using=".//*[@id='main-navigation']/fuse-nav-vertical-group[4]/div[2]/fuse-nav-vertical-item[4]/a")
-    WebElement clickListUser;
-    @FindBy(how = How.XPATH, using=".//*[contains(text(),'Add User')]")
+
+    @FindBy(how = How.ID, using="automationId-add-user")
     WebElement clickAddUser;
-    @FindBy(how = How.XPATH, using=".//*[contains(text(), 'User Status')]")
+    @FindBy(how = How.ID, using="automationId-user-status")
     WebElement clickActiveUser;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-3']")
+    @FindBy(how = How.ID, using="automationId-user-lastName")
     WebElement firstName;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-4']")
+    @FindBy(how = How.ID, using="automationId-user-firstName")
     WebElement lastName;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-5']")
+    @FindBy(how = How.ID, using="automationId-user-email")
     WebElement emailAddress;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-6']")
+    @FindBy(how = How.ID, using="automationId-user-phone")
     WebElement phone;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-7']")
+    @FindBy(how = How.ID, using="automationId-user-userName")
     WebElement userName;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-8']")
+    @FindBy(how = How.ID, using="automationId-user-userType")
     WebElement userType;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-9']")
+    @FindBy(how = How.ID, using="automationId-user-password")
     WebElement setPassword;
-    @FindBy(how = How.XPATH, using=".//*[@id='mat-input-10']")
+    @FindBy(how = How.ID, using="automationId-user-passwordConfirm")
     WebElement confirmPassword;
-    @FindBy(how = How.XPATH, using=".//*[@id='file-manager']/mat-sidenav-container/mat-sidenav-content/div/div[2]/fuse-file-list/div/div/form/div[9]/button/span")
-    WebElement clickAddButton;
+
 
     /*-----------------------------------Update User Xpath-------------------------------------------*/
 
     @FindBy(how = How.XPATH, using=".//*[@id='file-manager']/mat-sidenav-container/mat-sidenav-content/div/div[2]/fuse-file-list/mat-table/mat-row[3]/mat-cell[8]/div/button/span/mat-icon")
     WebElement clickupdateuser;
-    @FindBy(how = How.XPATH, using=".//*[@id='file-manager']/mat-sidenav-container/mat-sidenav-content/div/div[2]/fuse-file-list/mat-table/mat-row[3]")
+    @FindBy(how = How.CSS, using="mat-cell>div>i")
     WebElement clickupdatebutton;
     @FindBy(how = How.XPATH, using=".//*[@id='mat-input-14']")
     WebElement updateFirstName;
@@ -75,7 +73,7 @@ public class User {
 
         JavascriptExecutor js = (JavascriptExecutor)driver;
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        WebElement element = driver.findElement(By.xpath(".//*[contains(text(),'List User')]"));
+        WebElement element = driver.findElement(By.id("automationId-list-users"));
         js.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",element);
         element.click();
     }
@@ -119,7 +117,7 @@ public class User {
         confirmPassword.sendKeys(confirmpassword);
     }
     public void UserRole(WebDriver driver){
-        WebElement UserRole = driver.findElement(By.id("mat-select-0"));
+        WebElement UserRole = driver.findElement(By.id("automationId-user-userRole"));
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
         JavascriptExecutor jr = (JavascriptExecutor)driver;
         jr.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",UserRole);
@@ -137,7 +135,7 @@ public class User {
     }
     public  void AddUserButton(WebDriver driver) {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        WebElement AddButton = driver.findElement(By.xpath(".//*[@id='file-manager']/mat-sidenav-container/mat-sidenav-content/div/div[2]/fuse-file-list/div/div/form/div[9]/button"));
+        WebElement AddButton = driver.findElement(By.id("automationId-user-addBtn"));
         JavascriptExecutor jsx = (JavascriptExecutor)driver;
         jsx.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",AddButton);
         AddButton.click();;
@@ -181,7 +179,7 @@ public class User {
     }
 
     public  void UpdateUserRole(WebDriver driver){
-        WebElement updateUserRole = driver.findElement(By.id("mat-select-3"));
+        WebElement updateUserRole = driver.findElement(By.xpath(".//*[@id='mat-select-8']|.//*[@id='mat-select-8']"));
         JavascriptExecutor r = (JavascriptExecutor)driver;
         r.executeScript("arguments[0].scrollIntoViewIfNeeded(true);",updateUserRole);
         updateUserRole.click();
