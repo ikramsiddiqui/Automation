@@ -96,7 +96,7 @@ public class Coupon {
 
     /*---------------------------------------ADD Coupon field method----------------------------*/
 
-    public void ClickCoupon(){
+    public void ClickCoupon( ){
         clickCoupon.click();
     }
     public void ClickListCoupon(WebDriver driver){

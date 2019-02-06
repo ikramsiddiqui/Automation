@@ -12,6 +12,7 @@ public class CMS_Login {
 			
 			this.driver =Idriver;
 		}
+
 		@FindBy(how = How.ID, using="login-email")
 		WebElement userEmailID;
 		@FindBy(how = How.ID, using="login-password")

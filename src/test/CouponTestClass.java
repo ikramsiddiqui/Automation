@@ -1,35 +1,41 @@
 package test;
 
+import Utility.testUtil;
 import com.Pages.CMS_Login;
 import com.Pages.Coupon;
 
-import com.Pages.Merchant;
 import com.helper.browserfactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.List;
+
 import java.util.concurrent.TimeUnit;
 
 public class CouponTestClass {
     WebDriver driver = browserfactory.startBrowser("chrome", "http://localhost:4200/apps/dashboards/project/");
 
-    //@Test
-    @Test (priority = 0)
-    public void CMSlogin() throws InterruptedException {
+
+   @DataProvider
+   public Object[][] getLoginData(){
+
+      Object data [][]= testUtil.getTestData("testdata");
+
+       return data;
+   }
+
+    @Test(dataProvider = "getLoginData" )
+    public void CMSlogin(String username , String password) throws InterruptedException {
 
         //create Login page and Add Merchant object
         CMS_Login CMSLogin = PageFactory.initElements(driver,CMS_Login.class);
 
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         //USer Email
-        CMSLogin.UserEmail("admin@quotient.com");
+        CMSLogin.UserEmail(username);
         //User Password
-        CMSLogin.UserPassword("123456789");
+        CMSLogin.UserPassword(password);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         //Click Login button
         CMSLogin.ClickLogin();
@@ -40,7 +46,7 @@ public class CouponTestClass {
 
     }
 
-    @Test (priority = 1)
+    @Test(enabled = false)
     public void Coupon() throws InterruptedException{
         Coupon Add_Coupon =PageFactory.initElements(driver, Coupon.class);
         driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
@@ -87,7 +93,7 @@ public class CouponTestClass {
 
     }
 
-    @Test(priority = 2 , enabled = false )
+    @Test(enabled = false)
      public void UpdateCoupon() throws InterruptedException{
     Coupon Add_Coupon =PageFactory.initElements(driver, Coupon.class);
     driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
